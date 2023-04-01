@@ -1,3 +1,100 @@
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Apple SD Gothic Neo','Malgun Gothic',arial,sans-serif;
+
+}
+
 body {
-  background-color: antiquewhite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9f9f9;
+}
+
+.wrapper{
+  background-color: #FFFFFF;
+  box-shadow: 0px 0px 13px -2px rgba(190, 190, 190, 0.75);
+  width: 450px;
+  height: 100vh;
+  padding: 50px 20px;
+}
+
+.title{
+  font-weight: 900;
+  font-size: 38px;
+}
+
+.search-wrapper{
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+input{
+  width: 100%;
+  border-radius: 8px;
+  padding: 8px;
+  background-color: #EEEEEF;
+  border: none;
+  color: #838387;
+}
+
+hr{
+  background-color: #C6C6C8;
+  height:1px;
+  border:0;
+  margin-bottom: 8px;
+}
+
+.user-wrapper{
+  display: flex;
+  flex-direction: column;
+  padding: 3px 0px;
+  margin-bottom: 3px;
+  margin-top: 5px;
+  line-height: 20px;
+}
+
+.name{
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.phone{
+  color: #8E8E92;
+  font-size: 14px;
+}
+
+.profile-wrapper{
+  display: flex;
+  align-items: center;
+}
+
+.profile{
+  width: 80px;
+  height: 80px;
+  border-radius: 50% 50%;
+}
+
+.my-name-wrapper{
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+}
+
+.my-name{
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.desc {
+  color: #8E8E92;
+  font-size: 12px;
+}
+
+.list-text{
+  margin-top: 25px;
+  font-weight: bold;
+  color: #8A8A8D;
 }
