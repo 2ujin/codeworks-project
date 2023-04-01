@@ -21,6 +21,19 @@ body {
   padding: 50px 20px;
 }
 
+.detail{
+  background-color: #F2F2F6;
+}
+
+.plus{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.plus > img {
+  width: 20px;
+}
+
 .title{
   font-weight: 900;
   font-size: 38px;
@@ -97,4 +110,45 @@ hr{
   margin-top: 25px;
   font-weight: bold;
   color: #8A8A8D;
+}
+
+.detail-profile-wrapper {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.detail-profile-wrapper > img{
+  width: 100px;
+  height: 100px;
+  margin-bottom: 12px;
+}
+
+.detail-profile-wrapper > .name {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.detail-item-wrapper {
+  padding: 10px;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  line-height: 21px;
+}
+
+.sub {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.data {
+  font-size: 14px;
+  color: #3478F6;
+  font-weight: 600;
 }
