@@ -85,7 +85,7 @@ function clickDeleteItem() {
     return item.idx !== Number(idx);
   });
   localStorage.setItem("updateContacts", JSON.stringify(updateData));
-  window.location.assign("main.html");
+  window.location.assign("index.html");
 }
 
 function clickAddItemBtn() {
@@ -117,5 +117,5 @@ function clickAddContact() {
   }
   contacts.push(add);
   localStorage.setItem("updateContacts", JSON.stringify(contacts));
-  window.location.assign("main.html");
+  window.location.assign("index.html");
 }
