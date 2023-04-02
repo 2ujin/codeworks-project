@@ -1,3 +1,4 @@
+// dump contacts
 let contacts = [
   {
     idx: 0,
@@ -108,7 +109,7 @@ function clickAddContact() {
     surname,
     phone_number,
     address,
-    img: "https://i.pinimg.com/564x/ae/ac/b9/aeacb924abc3e17e184d6d5d7f82dda0.jpg",
+    img: "https://i.pinimg.com/564x/ae/ac/b9/aeacb924abc3e17e184d6d5d7f82dda0.jpg", // fix img
   };
 
   if (localStorage.getItem("updateContacts")) {
@@ -117,6 +118,4 @@ function clickAddContact() {
   contacts.push(add);
   localStorage.setItem("updateContacts", JSON.stringify(contacts));
   window.location.assign("main.html");
-
-  console.log(add);
 }
