@@ -42,12 +42,15 @@ window.onload = function () {
   }
 
   if (localStorage.getItem("selectedIdx")) {
-    const item = localStorage.getItem("selectedIdx");
+    const idx = localStorage.getItem("selectedIdx");
     if (localStorage.getItem("updateContacts")) {
       contacts = JSON.parse(localStorage.getItem("updateContacts"));
     }
 
-    const selectedItem = contacts[Number(item)];
+    let selectedItem = contacts.filter((item) => {
+      return item.idx === Number(idx);
+    });
+    selectedItem = selectedItem[0];
 
     $("#img").attr("src", selectedItem.img);
     $("#name").text(`${selectedItem.name + " " + selectedItem.surname}`);
