@@ -53,6 +53,11 @@ input{
   color: #838387;
 }
 
+input:focus{
+  outline:none;
+}
+
+
 hr{
   background-color: #C6C6C8;
   height:1px;
@@ -151,4 +156,31 @@ hr{
   font-size: 14px;
   color: #3478F6;
   font-weight: 600;
+}
+
+input.add_input {
+  border: none; 
+  background: transparent;
+  border-radius: 0;
+  margin-left: -8px;
+
+}
+
+.add-wrapper {
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.add-btn{
+  width: 100%;
+  background-color: #FFFFFF;
+  color: #3478F6;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 200px;
+  text-align: center;
+  font-weight: bold;
+  border: none;
+  font-size: 15px;
 }

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <div class="wrapper detail">
+
+    <div class="title">New Contact</div>
+
+    <div id="detail-profile-wrapper" class="detail-profile-wrapper">
+    <img src="https://i.pinimg.com/564x/ae/ac/b9/aeacb924abc3e17e184d6d5d7f82dda0.jpg" class="profile" />
+    <div class="name add-wrapper">
+        <input class="add_input" placeholder="name" type="text" id="add_name" required />
+        <input class="add_input" placeholder="surname" id="add_surname" type="text" required />
+    </div>
+    </div>
+
+    <div>
+    <div class="detail-item-wrapper">
+        <div class="sub">mobile</div>
+        <div class="data"><input class="add_input" placeholder="add mobile phone number" id="add_phone_number" type="text" required /></div>
+    </div>
+    <div class="detail-item-wrapper">
+        <div class="sub">address</div>
+        <div class="data"><input class="add_input" placeholder="add address" id="add_address" " type="text" required /></div>
+    </div>
+    </div>
+
+
+    <button onclick="clickAddContact()" class="add-btn">
+        Complete
+    </button>
+    </div>
+    
+  </body>
+</html>
