@@ -132,7 +132,9 @@ function inputSearch() {
   let input = $("#input").val();
   const findItem = contacts.filter((_) => {
     return (
-      _.name.toLowerCase().includes(input) || _.phone_number.includes(input)
+      _.name.toLowerCase().includes(input.toLowerCase()) ||
+      _.surname.toLowerCase().includes(input.toLowerCase()) ||
+      _.phone_number.includes(input)
     );
   });
 
