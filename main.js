@@ -69,6 +69,57 @@ window.onload = function () {
       <div class="data">${selectedItem.address}</div>
     </div>`);
   }
+
+  // add btn
+  $("button[class='add-btn']").click(function () {
+    const name = $("#add_name")?.val();
+    const surname = $("#add_surname")?.val();
+    const phone_number = $("#add_phone_number")?.val();
+    const address = $("#add_address")?.val();
+    if (!name || !surname || !phone_number || !address) {
+      alert("Please fill in all values!");
+      return;
+    }
+
+    const add = {
+      idx: contacts.length,
+      name,
+      surname,
+      phone_number,
+      address,
+      img: "https://i.pinimg.com/564x/ae/ac/b9/aeacb924abc3e17e184d6d5d7f82dda0.jpg", // fix img
+    };
+
+    if (localStorage.getItem("updateContacts")) {
+      contacts = JSON.parse(localStorage.getItem("updateContacts"));
+    }
+    contacts.push(add);
+    localStorage.setItem("updateContacts", JSON.stringify(contacts));
+    window.location.assign("index.html");
+  });
+
+  // delete btn
+  $("img[class='delete']").click(function () {
+    if (confirm("Are you sure you want to delete the contact?") === false) {
+      return;
+    }
+
+    if (localStorage.getItem("updateContacts")) {
+      contacts = JSON.parse(localStorage.getItem("updateContacts"));
+    }
+
+    const idx = localStorage.getItem("selectedIdx");
+    const updateData = contacts.filter((item) => {
+      return item.idx !== Number(idx);
+    });
+    localStorage.setItem("updateContacts", JSON.stringify(updateData));
+    window.location.assign("index.html");
+  });
+
+  // plus icon btn
+  $("img[class='plus']").click(function () {
+    window.location.assign("add.html");
+  });
 };
 
 function clickItem(idx) {
@@ -76,56 +127,6 @@ function clickItem(idx) {
   localStorage.setItem("selectedIdx", idx);
 }
 
-function clickDeleteItem() {
-  if (confirm("Are you sure you want to delete the contact?") === false) {
-    return;
-  }
-
-  if (localStorage.getItem("updateContacts")) {
-    contacts = JSON.parse(localStorage.getItem("updateContacts"));
-  }
-
-  const idx = localStorage.getItem("selectedIdx");
-  const updateData = contacts.filter((item) => {
-    return item.idx !== Number(idx);
-  });
-  localStorage.setItem("updateContacts", JSON.stringify(updateData));
-  window.location.assign("index.html");
-}
-
-function clickAddItemBtn() {
-  window.location.assign("add.html");
-}
-
-function clickAddContact() {
-  const name = $("#add_name")?.val();
-  const surname = $("#add_surname")?.val();
-  const phone_number = $("#add_phone_number")?.val();
-  const address = $("#add_address")?.val();
-
-  console.log(name);
-
-  if (!name || !surname || !phone_number || !address) {
-    alert("Please fill in all values!");
-    return;
-  }
-
-  const add = {
-    idx: contacts.length,
-    name,
-    surname,
-    phone_number,
-    address,
-    img: "https://i.pinimg.com/564x/ae/ac/b9/aeacb924abc3e17e184d6d5d7f82dda0.jpg", // fix img
-  };
-
-  if (localStorage.getItem("updateContacts")) {
-    contacts = JSON.parse(localStorage.getItem("updateContacts"));
-  }
-  contacts.push(add);
-  localStorage.setItem("updateContacts", JSON.stringify(contacts));
-  window.location.assign("index.html");
-}
 
 function inputSearch() {
   let input = $("#input").val();
