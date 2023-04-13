@@ -27,17 +27,19 @@ let contacts = [
 ];
 
 window.onload = function () {
-  const div = document.getElementById("user-wrapper");
+  const div = $("#user-wrapper");
   if (div) {
     if (localStorage.getItem("updateContacts")) {
       contacts = JSON.parse(localStorage.getItem("updateContacts"));
     }
     for (let item of contacts) {
-      div.innerHTML += `<div onclick="clickItem(${
-        item.idx
-      })" class="test" data-idx=${item.idx}><div class='name'>${
-        item.name + " " + item.surname
-      }</div><div class='phone'>${item.phone_number}</div>  <hr /> </div> `;
+      div.append(
+        `<div onclick="clickItem(${item.idx})" class="test" data-idx=${
+          item.idx
+        }><div class='name'>${
+          item.name + " " + item.surname
+        }</div><div class='phone'>${item.phone_number}</div>  <hr /> </div> `
+      );
     }
   }
 
@@ -55,17 +57,17 @@ window.onload = function () {
     $("#img").attr("src", selectedItem.img);
     $("#name").text(`${selectedItem.name + " " + selectedItem.surname}`);
 
-    const div = document.getElementById("detail-item-list");
-    div.innerHTML += `
+    const div = $("#detail-item-list");
+    div.append(`
     <div class="detail-item-wrapper">
       <div class="sub">mobile</div>
       <div class="data">${selectedItem.phone_number}</div>
-    </div>`;
-    div.innerHTML += `
+    </div>`);
+    div.append(`
     <div class="detail-item-wrapper">
       <div class="sub">address</div>
       <div class="data">${selectedItem.address}</div>
-    </div>`;
+    </div>`);
   }
 };
 
@@ -96,10 +98,12 @@ function clickAddItemBtn() {
 }
 
 function clickAddContact() {
-  const name = document.getElementById("add_name")?.value;
-  const surname = document.getElementById("add_surname")?.value;
-  const phone_number = document.getElementById("add_phone_number")?.value;
-  const address = document.getElementById("add_address")?.value;
+  const name = $("#add_name")?.val();
+  const surname = $("#add_surname")?.val();
+  const phone_number = $("#add_phone_number")?.val();
+  const address = $("#add_address")?.val();
+
+  console.log(name);
 
   if (!name || !surname || !phone_number || !address) {
     alert("Please fill in all values!");
@@ -121,4 +125,36 @@ function clickAddContact() {
   contacts.push(add);
   localStorage.setItem("updateContacts", JSON.stringify(contacts));
   window.location.assign("index.html");
+}
+
+function inputSearch() {
+  let input = $("#input").val();
+  const findItem = contacts.filter((_) => {
+    return (
+      _.name.toLowerCase().includes(input) || _.phone_number.includes(input)
+    );
+  });
+
+  if (localStorage.getItem("updateContacts")) {
+    contacts = JSON.parse(localStorage.getItem("updateContacts"));
+  }
+
+  const div = $("#user-wrapper");
+  let searchResult = [];
+  div.html("");
+  if (input === "") {
+    searchResult = contacts;
+  } else {
+    searchResult = findItem;
+  }
+
+  for (let item of searchResult) {
+    div.append(
+      `<div onclick="clickItem(${item.idx})" class="test" data-idx=${
+        item.idx
+      }><div class='name'>${
+        item.name + " " + item.surname
+      }</div><div class='phone'>${item.phone_number}</div>  <hr /> </div> `
+    );
+  }
 }
